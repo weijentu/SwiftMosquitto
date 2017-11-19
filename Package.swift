@@ -13,7 +13,7 @@ let package = Package(
         .package(url: "https://github.com/rhx/Clibmosquitto.git", .branch("master")),
    ],
     targets: [
-        .target(name: "SwiftMosquitto", dependencies: ["Clibmosquitto"]),
+        .target(name: "SwiftMosquitto", dependencies: []),
         .target(name: "mosquitto-client", dependencies: ["SwiftMosquitto"]),
         .testTarget(name: "SwiftMosquittoTests", dependencies: ["SwiftMosquitto"]),
     ]
