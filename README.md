@@ -23,7 +23,10 @@ To build using Xcode, use
 
 ```
 brew install mosquitto
-swift build -Xlinker -L/usr/local/lib
-open 
+swift package generate-xcodeproj --xcconfig-overrides Package.xcconfig
+open Mosquitto.xcodeproj
 ```
 
+## TODO
+- [ ] TLS layer
+- [ ] complete libmosquitto API calls

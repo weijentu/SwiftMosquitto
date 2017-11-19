@@ -1,12 +1,12 @@
 import XCTest
-@testable import SwiftMosquitto
+@testable import Mosquitto
 
-class SwiftMosquittoTests: XCTestCase {
+class MosquittoTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        XCTAssertEqual(SwiftMosquitto().text, "Hello, World!")
+        XCTAssertEqual("IMPLEMENTME", "IMPLEMENTME")
     }
 
 

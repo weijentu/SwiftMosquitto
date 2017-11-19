@@ -4,17 +4,17 @@
 import PackageDescription
 
 let package = Package(
-    name: "SwiftMosquitto",
+    name: "Mosquitto",
     products: [
-        .library(name: "SwiftMosquitto", targets: ["SwiftMosquitto"]),
+        .library(name: "Mosquitto", targets: ["Mosquitto"]),
         .executable(name: "mosquitto-client", targets: ["mosquitto-client"]),
     ],
     dependencies: [
         .package(url: "https://github.com/rhx/Clibmosquitto.git", .branch("master")),
    ],
     targets: [
-        .target(name: "SwiftMosquitto", dependencies: []),
-        .target(name: "mosquitto-client", dependencies: ["SwiftMosquitto"]),
-        .testTarget(name: "SwiftMosquittoTests", dependencies: ["SwiftMosquitto"]),
+        .target(name: "Mosquitto", dependencies: []),
+        .target(name: "mosquitto-client", dependencies: ["Mosquitto"]),
+        .testTarget(name: "MosquittoTests", dependencies: ["Mosquitto"]),
     ]
 )
