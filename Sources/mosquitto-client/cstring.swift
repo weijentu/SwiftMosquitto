@@ -56,3 +56,16 @@ public func convert<T>(_ cString: UnsafePointer<CChar>, using: (UnsafeMutablePoi
         }
     }
 }
+
+#if os(Linux)
+    /// Return the base name of the given path
+    ///
+    /// - Parameter path: full path
+    /// - Returns: last component from the pathname pointed to by path
+    func basename(_ path: UnsafeMutablePointer<CChar>!) -> UnsafeMutablePointer<CChar>! {
+        if let separator = strrchr(UnsafePointer(path), 0x2f) {
+            return separator + 1
+        }
+        return path
+    }
+#endif

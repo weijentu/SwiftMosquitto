@@ -1,15 +1,6 @@
 import Foundation
 import Mosquitto
 
-#if os(Linux)
-func basename(_ path: UnsafeMutablePointer<CChar>!) -> UnsafeMutablePointer<CChar>! {
-    if let separator = strrchr(UnsafePointer(path), 0x2f) {
-        return separator + 1
-    }
-    return path
-}
-#endif
-
 let args = CommandLine.arguments
 let cmd = args[0]                   ///< command name
 var name = convert(cmd, using: basename)
