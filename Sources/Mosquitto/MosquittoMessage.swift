@@ -9,6 +9,7 @@ import Clibmosquitto
 
 public class MosquittoMessage {
     let msg: UnsafePointer<mosquitto_message>
+    let free: Bool
     public var topic: String { return String(cString: msg.pointee.topic) }
     public var payload: UnsafeRawPointer { return UnsafeRawPointer(msg.pointee.payload) }
     public var length: Int { return Int(msg.pointee.payloadlen) }
@@ -26,13 +27,14 @@ public class MosquittoMessage {
         return String(cString: payload)
     }
 
-    init(message: UnsafePointer<mosquitto_message>) {
+    init(message: UnsafePointer<mosquitto_message>, needsFree: Bool = false) {
         msg = message
+        free = needsFree
     }
 
     deinit {
         var msg: UnsafeMutablePointer<mosquitto_message>? = UnsafeMutablePointer(mutating: self.msg)
-        mosquitto_message_free(&msg)
+        if free { mosquitto_message_free(&msg) }
     }
 
     /// Clone a MosquittoMessage
@@ -41,6 +43,6 @@ public class MosquittoMessage {
     public convenience init(_ other: MosquittoMessage) {
         let ptr = UnsafeMutablePointer<mosquitto_message>.allocate(capacity: 1)
         mosquitto_message_copy(ptr, other.msg)
-        self.init(message: ptr)
+        self.init(message: ptr, needsFree: true)
     }
 }
