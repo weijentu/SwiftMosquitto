@@ -4,13 +4,13 @@ import Clibmosquitto
 public class Mosquitto {
     static var initialisationStatus = mosquitto_lib_init()
     let mosquitto: OpaquePointer!
-    var connectionCallback: (ConnectionStatus) -> Void = { _ in }
-    var disconnectionCallback: (ConnectionStatus) -> Void = { _ in }
-    var publishCallback: (MessageId) -> Void = { _ in }
-    var subscribeCallback: (MessageId, UnsafeBufferPointer<CInt>) -> Void = { _, _ in }
-    var unsubscribeCallback: (MessageId) -> Void = { _ in }
-    var messageCallback: (MosquittoMessage) -> Void = { _ in }
-    var logCallback: (MosquittoLogLevel, UnsafePointer<CChar>?) -> Void = { _, _ in }
+    public var connectionCallback: (ConnectionStatus) -> Void = { _ in }
+    public var disconnectionCallback: (ConnectionStatus) -> Void = { _ in }
+    public var publishCallback: (MessageId) -> Void = { _ in }
+    public var subscribeCallback: (MessageId, UnsafeBufferPointer<CInt>) -> Void = { _, _ in }
+    public var unsubscribeCallback: (MessageId) -> Void = { _ in }
+    public var messageCallback: (MosquittoMessage) -> Void = { _ in }
+    public var logCallback: (MosquittoLogLevel, UnsafePointer<CChar>) -> Void = { _, _ in }
 
     /// Create a new Mosquitto client instance
     ///
