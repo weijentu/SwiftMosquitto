@@ -1,3 +1,3 @@
-OTHER_LDFLAGS = $(inherited) -L/usr/local/lib
-HEADER_SEARCH_PATHS = $(inherited) /usr/local/include
+OTHER_LDFLAGS = $(inherited) -L/usr/local/Cellar/mosquitto/1.5.3/lib
+HEADER_SEARCH_PATHS = $(inherited) /usr/local/Cellar/mosquitto/1.5.3/include
 SUPPORTED_PLATFORMS = macOS
